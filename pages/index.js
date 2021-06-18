@@ -6,8 +6,8 @@ import TypeList from '../components/meetups/TypeList';
 export async function getStaticProps() {
   // fetch data
 
-  const mongoDb = process.env.DB_CONNECTION_STRING;
-  const client = await MongoClient.connect(mongoDb, { useNewUrlParser: true , useUnifiedTopology: true});
+  // const mongoDb = process.env.DB_CONNECTION_STRING;
+  const client = await MongoClient.connect('mongodb+srv://brannon:LiEDes9282PbJ0kN@cluster0.yzd7e.mongodb.net/meetup?retryWrites=true&w=majority', { useNewUrlParser: true , useUnifiedTopology: true});
   const db = client.db();
 
   const meetupsCollection = db.collection('categories');
