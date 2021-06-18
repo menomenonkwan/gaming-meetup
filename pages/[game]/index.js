@@ -108,7 +108,7 @@ export default function GameTypeHome({meetups}) {
       </Head>    
       <TitleStyles>{typeTitle}</TitleStyles>
       <GridStyles>
-        {meetups.sort(function(a,b){ 
+        {meetups && meetups.sort(function(a,b){ 
           return new Date(a.date) - new Date(b.date); 
         }).map(meetup => 
           {if(meetup.game === game) {
