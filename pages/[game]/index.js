@@ -22,8 +22,8 @@ const TitleStyles = styled.h1`
 `;
 
 export async function getStaticPaths() {
-  // const mongoDb = process.env.DB_CONNECTION_STRING;
-  const client = await MongoClient.connect('mongodb+srv://brannon:LiEDes9282PbJ0kN@cluster0.yzd7e.mongodb.net/meetup?retryWrites=true&w=majority', { useNewUrlParser: true , useUnifiedTopology: true});
+  const mongoDb = process.env.DB_CONNECTION_STRING;
+  const client = await MongoClient.connect(mongoDb, { useNewUrlParser: true , useUnifiedTopology: true});
   const db = client.db();
 
   const meetupsCollection = db.collection('meetups');
@@ -55,8 +55,8 @@ export async function getStaticPaths() {
 export async function getStaticProps(context) {
   const game = context.params.game;
 
-  // const mongoDb = process.env.DB_CONNECTION_STRING;
-  const client = await MongoClient.connect('mongodb+srv://brannon:LiEDes9282PbJ0kN@cluster0.yzd7e.mongodb.net/meetup?retryWrites=true&w=majority', { useNewUrlParser: true , useUnifiedTopology: true});
+  const mongoDb = process.env.DB_CONNECTION_STRING;
+  const client = await MongoClient.connect(mongoDb, { useNewUrlParser: true , useUnifiedTopology: true});
   const db = client.db();
 
   const meetupsCollection = db.collection('meetups');
