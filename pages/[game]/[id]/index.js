@@ -25,7 +25,7 @@ export async function getStaticProps(context) {
   const id = context.params.id;
 
   const mongoDb = process.env.DB_CONNECTION_STRING;
-  const client = await MongoClient.connect(mongoDb, { useNewUrlParser: true , useUnifiedTopology: true});
+  const client = await MongoClient.connect(`${mongoDb}`, { useNewUrlParser: true , useUnifiedTopology: true});
   const db = client.db();
 
   const meetupsCollection = db.collection('meetups');
